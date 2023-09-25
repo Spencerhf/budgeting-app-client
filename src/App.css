@@ -4,14 +4,26 @@
   margin: auto;
   text-align: center;
 }
-.primary-button {
-  border: none;
-  background-color: #9cc399;
-  width: 200px;
+.primary-button,
+.secondary-button {
+  width: 150px;
+  margin: auto;
   height: 30px;
-  color: #003a00;
   font-family: lato;
   border-radius: 5px;
+}
+.primary-button {
+  background-color: #9cc399;
+  border: 1px solid #9cc399;
+  color: #003a00;
+}
+.secondary-button {
+  background-color: #99aec3;
+  border: 1px solid #99aec3;
+  color: #2f4c6a;
+}
+.secondary-active {
+  background-color: transparent!important;
 }
 
 .monthly-total__container h1 {
@@ -43,7 +55,11 @@
 }
 
 /* Add Line Item Component */
-.form-input__container {
+#add-item__form {
+  display: none;
+}
+.form-input__container,
+.input-type__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
