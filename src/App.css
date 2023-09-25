@@ -28,6 +28,7 @@ body {
   background-color: #99aec3;
   border: 1px solid #99aec3;
   color: #2f4c6a;
+  width: 100%;
 }
 .secondary-active {
   background-color: transparent!important;
