@@ -4,19 +4,32 @@
   margin: auto;
   text-align: center;
 }
+.primary-button {
+  border: none;
+  background-color: #9cc399;
+  width: 200px;
+  height: 30px;
+  color: #003a00;
+  font-family: lato;
+  border-radius: 5px;
+}
+
 .monthly-total__container h1 {
   font-size: 30px;
   color: #373737;
+  margin: 0;
+  margin-bottom: 10px;
 }
 .monthly-total__container p {
   font-size: 25px;
   color: #2c7626;
+  margin: 0;
 }
 
 .activity-list__container {
   padding: 10px 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   gap: 25px;
 }
@@ -27,4 +40,27 @@
 }
 .activity-list__container p {
   margin: 0;
+}
+
+/* Add Line Item Component */
+.form-input__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.form-input__container label,
+.form-input__container input {
+  display: block;
+  text-align: left;
+}
+.form-input__container input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 20px;
+}
+.form-input__container label {
+  color: grey;
+  margin-bottom: 5px;
+  font-size: 14px;
 }

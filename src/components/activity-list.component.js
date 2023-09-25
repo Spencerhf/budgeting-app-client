@@ -1,14 +1,13 @@
 import "../App.css";
 import React from "react";
-import axios from "axios";
-import { getTotal } from "../Services/custom";
+import { getTotal, listData, removeItem } from "../Services/custom";
 import Trash from "../Assets/icons8-trash-24.png";
 
 function ActivityList({list, getList, totalFunction }) {
   const deleteLineItem = async (id) => {
     // Update activity list
-    await axios.post(`http://localhost:8080/remove-list/${id}`);
-    const data = await axios.get(`http://localhost:8080/activity-list`);
+    await removeItem(id);
+    const data = await listData();
 
     // Update total for the month
     const totalData = await getTotal();

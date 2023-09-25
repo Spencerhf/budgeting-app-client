@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import TotalMoney from "./total-money.component";
 import ActivityList from "./activity-list.component";
+import AddLineItem from "./add-line-item.component";
 import { getTotal, listData } from "../Services/custom";
 
 export default function Homepage() {
@@ -25,6 +26,7 @@ export default function Homepage() {
   return (
     <div>
       <TotalMoney total={ total }/>
+      <AddLineItem getList={ getList } totalFunction={ totalFunction } />
       <ActivityList list={ list } getList={ getList } total={ total } totalFunction={ totalFunction } />
     </div>
   );
