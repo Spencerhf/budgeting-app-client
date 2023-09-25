@@ -1,3 +1,8 @@
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 .container__width {
   max-width: 800px;
   padding: 20px;
@@ -8,7 +13,9 @@
 .secondary-button {
   width: 150px;
   margin: auto;
-  height: 30px;
+  height: 35px;
+  transition: .25s;
+  font-size: 18px;
   font-family: lato;
   border-radius: 5px;
 }
@@ -73,7 +80,7 @@
 .form-input__container input {
   border: 1px solid grey;
   border-radius: 5px;
-  height: 20px;
+  height: 25px;
 }
 .form-input__container label {
   color: grey;
