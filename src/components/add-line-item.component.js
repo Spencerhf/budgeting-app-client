@@ -23,14 +23,26 @@ export default function AddLineItem({ getList, totalFunction }) {
   const transactionTypeSelect = (e) => {
     if (e.target.innerText === "Purchase") {
       isPurchase = true;
-      document.getElementById("purchase-selection").style.backgroundColor = "transparent";
-      document.getElementById("income-selection").style.backgroundColor = "#99aec3";
+      document.getElementById("purchase-selection").style.backgroundColor =
+        "transparent";
+      document.getElementById("income-selection").style.backgroundColor =
+        "#99aec3";
     } else {
       isPurchase = false;
-      document.getElementById("income-selection").style.backgroundColor = "transparent";
-      document.getElementById("purchase-selection").style.backgroundColor = "#99aec3";
+      document.getElementById("income-selection").style.backgroundColor =
+        "transparent";
+      document.getElementById("purchase-selection").style.backgroundColor =
+        "#99aec3";
     }
     document.getElementById("add-item__form").style.display = "block";
+  };
+
+  const closeTypeSelect = () => {
+    document.getElementById("add-item__form").style.display = "none";
+    document.getElementById("income-selection").style.backgroundColor =
+      "#99aec3";
+    document.getElementById("purchase-selection").style.backgroundColor =
+      "#99aec3";
   };
 
   return (
@@ -40,6 +52,7 @@ export default function AddLineItem({ getList, totalFunction }) {
           id="purchase-selection"
           onClick={(e) => transactionTypeSelect(e)}
           className="secondary-button"
+          type="button"
         >
           Purchase
         </button>
@@ -47,6 +60,7 @@ export default function AddLineItem({ getList, totalFunction }) {
           id="income-selection"
           onClick={(e) => transactionTypeSelect(e)}
           className="secondary-button"
+          type="button"
         >
           Income
         </button>
@@ -62,9 +76,18 @@ export default function AddLineItem({ getList, totalFunction }) {
             <input required id="item-amount" type="text" name="amount"></input>
           </div>
         </div>
-        <button className="primary-button" type="submit">
-          Add item
-        </button>
+        <div className="input-type__container">
+          <button
+            onClick={() => closeTypeSelect()}
+            type="button"
+            className="secondary-button"
+          >
+            Nevermind
+          </button>
+          <button className="primary-button" type="submit">
+            Add item
+          </button>
+        </div>
       </form>
     </div>
   );

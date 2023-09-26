@@ -3,7 +3,7 @@ import React from "react";
 import { getTotal, listData, removeItem } from "../Services/custom";
 import Trash from "../Assets/icons8-trash-24.png";
 
-function ActivityList({list, getList, totalFunction }) {
+function ActivityList({ list, getList, totalFunction }) {
   const deleteLineItem = async (id) => {
     // Update activity list
     await removeItem(id);
@@ -13,8 +13,7 @@ function ActivityList({list, getList, totalFunction }) {
     const totalData = await getTotal();
     totalFunction(await totalData);
     getList(await data.data);
-
-  }
+  };
 
   return (
     <>

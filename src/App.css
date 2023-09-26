@@ -1,6 +1,31 @@
+html {
+  height: 100%;
+  background-color: #e3ffe3;
+}
 body {
   max-width: 100vw;
   overflow-x: hidden;
+}
+
+header {
+  background-color: #9cc399;
+  height: 50px;
+  padding: 5px 15px;
+  box-shadow: 0 0 10px black;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+header img {
+  width: 50px;
+}
+header h2 {
+  font-size: 25px;
+  margin: 0;
+  text-transform: uppercase;
+  color: #1f541a;
 }
 
 .container__width {
@@ -70,7 +95,7 @@ body {
 .input-type__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 20px;
   margin-bottom: 20px;
 }
 .form-input__container label,
@@ -79,9 +104,11 @@ body {
   text-align: left;
 }
 .form-input__container input {
+  width: 100%;
   border: 1px solid grey;
   border-radius: 5px;
   height: 25px;
+  padding: 0;
 }
 .form-input__container label {
   color: grey;
