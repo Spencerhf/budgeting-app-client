@@ -1,7 +1,12 @@
 import React from "react";
-import { addItem, listData, getTotal } from "../Services/custom";
+import * as Services from "../Services/custom";
 
-export default function AddLineItem({ getList, totalFunction }) {
+export default function AddLineItem({
+  getList,
+  getMoneyIn,
+  getMoneyOut,
+  totalFunction,
+}) {
   let isPurchase;
   const addItemSubmit = async (e) => {
     e.preventDefault();
@@ -11,16 +16,24 @@ export default function AddLineItem({ getList, totalFunction }) {
     document.getElementById("item-amount").value = "";
     if (isPurchase) itemAmount = "-" + itemAmount;
 
-    await addItem(itemName, itemAmount);
-    const data = await listData();
+    await Services.addItem(itemName, itemAmount);
+    const data = await Services.getRecentActivity();
+    const moneyInData = await Services.getMoneyInActivity();
+    const moneyOutData = await Services.getMoneyOutActivity();
 
     // Update total for the month
-    const totalData = await getTotal();
+    const totalData = await Services.getTotal();
     totalFunction(await totalData);
     getList(await data.data);
+    getMoneyIn(await moneyInData.data);
+    getMoneyOut(await moneyOutData.data);
   };
 
   const transactionTypeSelect = (e) => {
+    document.getElementsByClassName("activity-list__section")[0].style.top =
+      "0";
+    document.getElementById("add-item__form").style.visibility = "visible";
+
     if (e.target.innerText === "Purchase") {
       isPurchase = true;
       document.getElementById("purchase-selection").style.backgroundColor =
@@ -34,15 +47,16 @@ export default function AddLineItem({ getList, totalFunction }) {
       document.getElementById("purchase-selection").style.backgroundColor =
         "#c2af84";
     }
-    document.getElementById("add-item__form").style.display = "block";
   };
 
   const closeTypeSelect = () => {
-    document.getElementById("add-item__form").style.display = "none";
+    document.getElementsByClassName("activity-list__section")[0].style.top =
+      "-150px";
     document.getElementById("income-selection").style.backgroundColor =
       "#c2af84";
     document.getElementById("purchase-selection").style.backgroundColor =
       "#c2af84";
+    document.getElementById("add-item__form").style.visibility = "hidden";
   };
 
   return (
