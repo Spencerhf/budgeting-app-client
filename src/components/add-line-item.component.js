@@ -26,13 +26,13 @@ export default function AddLineItem({ getList, totalFunction }) {
       document.getElementById("purchase-selection").style.backgroundColor =
         "transparent";
       document.getElementById("income-selection").style.backgroundColor =
-        "#99aec3";
+        "#c2af84";
     } else {
       isPurchase = false;
       document.getElementById("income-selection").style.backgroundColor =
         "transparent";
       document.getElementById("purchase-selection").style.backgroundColor =
-        "#99aec3";
+        "#c2af84";
     }
     document.getElementById("add-item__form").style.display = "block";
   };
@@ -40,9 +40,9 @@ export default function AddLineItem({ getList, totalFunction }) {
   const closeTypeSelect = () => {
     document.getElementById("add-item__form").style.display = "none";
     document.getElementById("income-selection").style.backgroundColor =
-      "#99aec3";
+      "#c2af84";
     document.getElementById("purchase-selection").style.backgroundColor =
-      "#99aec3";
+      "#c2af84";
   };
 
   return (

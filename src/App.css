@@ -42,7 +42,7 @@ header h2 {
   transition: .25s;
   font-size: 18px;
   font-family: lato;
-  border-radius: 5px;
+  border-radius: 25px;
 }
 .primary-button {
   background-color: #9cc399;
@@ -50,9 +50,9 @@ header h2 {
   color: #003a00;
 }
 .secondary-button {
-  background-color: #99aec3;
-  border: 1px solid #99aec3;
-  color: #2f4c6a;
+  background-color: #c2af84;
+  border: 1px solid #c2af84;
+  color: #544d3e;
   width: 100%;
 }
 .secondary-active {
