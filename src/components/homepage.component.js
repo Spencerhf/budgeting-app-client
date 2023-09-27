@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import TotalMoney from "./total-money.component";
 import ActivityList from "./activity-list.component";
-import AddLineItem from "./add-line-item.component";
+import AddItemModal from "./add-item-modal.component";
 import * as Services from "../Services/custom";
 
 export default function Homepage() {
@@ -34,7 +34,7 @@ export default function Homepage() {
   return (
     <div>
       <TotalMoney total={total} />
-      <AddLineItem
+      <AddItemModal
         getMoneyIn={getMoneyIn}
         getMoneyOut={getMoneyOut}
         getList={getList}

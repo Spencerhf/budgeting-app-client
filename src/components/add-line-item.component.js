@@ -51,7 +51,7 @@ export default function AddLineItem({
 
   const closeTypeSelect = () => {
     document.getElementsByClassName("activity-list__section")[0].style.top =
-      "-150px";
+      "-130px";
     document.getElementById("income-selection").style.backgroundColor =
       "#c2af84";
     document.getElementById("purchase-selection").style.backgroundColor =
@@ -60,25 +60,7 @@ export default function AddLineItem({
   };
 
   return (
-    <div className="add-item__container container__width">
-      <div className="input-type__container">
-        <button
-          id="purchase-selection"
-          onClick={(e) => transactionTypeSelect(e)}
-          className="secondary-button"
-          type="button"
-        >
-          Purchase
-        </button>
-        <button
-          id="income-selection"
-          onClick={(e) => transactionTypeSelect(e)}
-          className="secondary-button"
-          type="button"
-        >
-          Income
-        </button>
-      </div>
+    <div>
       <form id="add-item__form" onSubmit={addItemSubmit}>
         <div className="form-input__container">
           <div>
