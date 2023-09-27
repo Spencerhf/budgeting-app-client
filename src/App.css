@@ -118,6 +118,10 @@ header h2 {
   display: flex;
   gap: 20px;
 }
+.list-item__price img {
+  height: 20px;
+  margin: auto;
+}
 .activity-list__container p {
   margin: 0;
 }
