@@ -1,7 +1,7 @@
 import "../App.css";
 import { useState } from "react";
 // import React from "react";
-import * as Services from "../Services/custom";
+// import * as Services from "../Services/custom";
 import EditIcon from "../Assets/edit-icon.png";
 import EditListItemModal from "./edit-list-item.component";
 
@@ -24,20 +24,20 @@ function ActivityList({
     modalToggle(true);
   };
 
-  const deleteLineItem = async (id) => {
-    // Update activity list
-    await Services.removeItem(id);
-    const data = await Services.getRecentActivity();
-    const moneyInData = await Services.getMoneyInActivity();
-    const moneyOutData = await Services.getMoneyOutActivity();
+  // const deleteLineItem = async (id) => {
+  //   // Update activity list
+  //   await Services.removeItem(id);
+  //   const data = await Services.getRecentActivity();
+  //   const moneyInData = await Services.getMoneyInActivity();
+  //   const moneyOutData = await Services.getMoneyOutActivity();
 
-    // Update total for the month
-    const totalData = await Services.getTotal();
-    totalFunction(await totalData);
-    getList(await data.data);
-    getMoneyIn(await moneyInData.data);
-    getMoneyOut(await moneyOutData.data);
-  };
+  //   // Update total for the month
+  //   const totalData = await Services.getTotal();
+  //   totalFunction(await totalData);
+  //   getList(await data.data);
+  //   getMoneyIn(await moneyInData.data);
+  //   getMoneyOut(await moneyOutData.data);
+  // };
 
   return (
     <div className="activity-list__segment">
