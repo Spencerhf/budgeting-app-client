@@ -7,6 +7,7 @@ body {
   background-color: #e3ffe3!important;
 }
 
+/* HEADER STYLING */
 header {
   position: sticky;
   top: 0;
@@ -30,7 +31,9 @@ header h2 {
   text-transform: uppercase;
   color: #1f541a;
 }
+/* END HEADER STYLING */
 
+/* SOME GLOBAL STYLES */
 .container__width {
   max-width: 800px;
   padding: 20px;
@@ -70,7 +73,12 @@ header h2 {
   color: #373737;
   width: 100px;
 }
+.form-label {
+  margin-bottom: 0 !important;
+}
+/* END GLOBAL STYLES */
 
+/* MOTNHLY TOTAL COMPONENT */
 .monthly-total__container h1 {
   font-size: 30px;
   color: #373737;
@@ -82,7 +90,9 @@ header h2 {
   color: #2c7626;
   margin: 0;
 }
+/* END MONTHLY TOTAL COMPONENT */
 
+/* ACTIVITY LIST */
 .activity-list__section {
   position: relative;
   padding-top: 1px;
@@ -93,7 +103,7 @@ header h2 {
   text-align: left;
 }
 .activity-list__container {
-  padding: 10px 0;
+  padding: 5px 0;
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: center;
@@ -125,8 +135,9 @@ header h2 {
 .activity-list__container p {
   margin: 0;
 }
+/* END ACTIVITY LIST */
 
-/* Add Line Item Component */
+/* ADD ITEM COMPONENT */
 #add-item__form {
   position: relative;
   z-index: 1;
@@ -163,3 +174,4 @@ header h2 {
   margin-bottom: 5px;
   font-size: 14px;
 }
+/* END ADD ITEM COMPONENT */

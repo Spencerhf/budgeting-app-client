@@ -1,7 +1,9 @@
 import "../App.css";
-import React from "react";
+import { useState } from "react";
+// import React from "react";
 import * as Services from "../Services/custom";
-import Trash from "../Assets/icons8-trash-24.png";
+import EditIcon from "../Assets/edit-icon.png";
+import EditListItemModal from "./edit-list-item.component";
 
 function ActivityList({
   list,
@@ -12,6 +14,16 @@ function ActivityList({
   getMoneyIn,
   getMoneyOut,
 }) {
+  const [showModal, modalToggle] = useState(false);
+  const [lineItem, itemClicked] = useState({});
+  const [itemId, setItemId] = useState();
+
+  const handleShow = (listItem) => {
+    setItemId(listItem.id);
+    itemClicked(listItem);
+    modalToggle(true);
+  };
+
   const deleteLineItem = async (id) => {
     // Update activity list
     await Services.removeItem(id);
@@ -31,19 +43,27 @@ function ActivityList({
     <div className="activity-list__segment">
       <h2>{listName}</h2>
       {list.map((listItem) => (
-        <div key={listItem.id} className="activity-list__container">
-          <p>{listItem.name}</p>
-          <div className="list-item__price">
-            <p>${listItem.amount}</p>
-            <img
-              onClick={() => deleteLineItem(listItem.id)}
-              alt="black and white trash can icon"
-              src={Trash}
-            />
+        <div key={listItem.id} onClick={() => handleShow(listItem)}>
+          <div className="activity-list__container">
+            <p>{listItem.name}</p>
+            <div className="list-item__price">
+              <p>${listItem.amount}</p>
+              <img alt="black and white edit icon" src={EditIcon} />
+            </div>
           </div>
         </div>
       ))}
       {seeAllBtn && <a href="/">{seeAllBtn}</a>}
+      <EditListItemModal
+        itemId={itemId}
+        lineItem={lineItem}
+        showModal={showModal}
+        modalToggle={modalToggle}
+        getMoneyIn={getMoneyIn}
+        getMoneyOut={getMoneyOut}
+        getList={getList}
+        totalFunction={totalFunction}
+      />
     </div>
   );
 }

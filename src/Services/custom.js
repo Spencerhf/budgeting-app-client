@@ -30,8 +30,13 @@ async function removeItem(id) {
 async function addItem(name, amount) {
   const response = await axios.post(`${apiUrl}/add-item`, {
     name: name,
-    amount: amount
+    amount: amount,
   });
+  return response;
+}
+
+async function updateLineItem(updateObj, id) {
+  const response = await axios.post(`${apiUrl}/item-update/${id}`, updateObj);
   return response;
 }
 
@@ -41,5 +46,6 @@ export {
   getRecentActivity,
   getMoneyOutActivity,
   getMoneyInActivity,
-  getTotal
-}
+  getTotal,
+  updateLineItem,
+};
