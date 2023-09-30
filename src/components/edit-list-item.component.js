@@ -102,7 +102,7 @@ export default function EditListItemModal({
                 className="tertiary-button"
                 onClick={deleteLineItem}
               >
-                Delete item
+                Delete
               </button>
               <button type="submit" className="primary-button">
                 Update
