@@ -41,7 +41,6 @@ export default function AddItemModal({
   };
 
   const addItemSubmit = async (e) => {
-    console.log("something");
     e.preventDefault();
     const itemName = document.getElementById("item-name").value;
     document.getElementById("item-name").value = "";

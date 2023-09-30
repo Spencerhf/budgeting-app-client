@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const apiUrl = "https://almost-a-budgeting-app-6b804606f213.herokuapp.com";
+// const apiUrl = "http://localhost:3000";
 
 async function getTotal() {
   const response = await axios.get(`${apiUrl}/monthly-total`);

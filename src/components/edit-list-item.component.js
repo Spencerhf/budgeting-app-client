@@ -40,6 +40,23 @@ export default function EditListItemModal({
     handleClose();
   };
 
+  const deleteLineItem = async () => {
+    // Update activity list
+    await Services.removeItem(itemId);
+    const data = await Services.getRecentActivity();
+    const moneyInData = await Services.getMoneyInActivity();
+    const moneyOutData = await Services.getMoneyOutActivity();
+
+    // Update total for the month
+    const totalData = await Services.getTotal();
+    totalFunction(await totalData);
+    getList(await data.data);
+    getMoneyIn(await moneyInData.data);
+    getMoneyOut(await moneyOutData.data);
+
+    handleClose();
+  };
+
   return (
     <div className="add-item__container container__width">
       <Modal centered show={showModal} onHide={handleClose}>
@@ -83,12 +100,12 @@ export default function EditListItemModal({
               <button
                 type="button"
                 className="tertiary-button"
-                onClick={handleClose}
+                onClick={deleteLineItem}
               >
-                Close
+                Delete item
               </button>
               <button type="submit" className="primary-button">
-                Add item
+                Update
               </button>
             </div>
           </Form>
