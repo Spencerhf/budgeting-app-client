@@ -4,12 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
 import * as Services from "../Services/custom";
 
-export default function AddItemModal({
-  getList,
-  getMoneyIn,
-  getMoneyOut,
-  totalFunction,
-}) {
+export default function AddItemModal() {
   const [show, setShow] = useState(false);
   const [isPurchase, setIsPurchase] = useState();
   const [formText, setFormText] = useState({});
@@ -49,18 +44,7 @@ export default function AddItemModal({
     if (isPurchase) itemAmount = "-" + itemAmount;
 
     await Services.addItem(itemName, itemAmount);
-    const data = await Services.getRecentActivity();
-    const moneyInData = await Services.getMoneyInActivity();
-    const moneyOutData = await Services.getMoneyOutActivity();
-
-    // Update total for the month
-    const totalData = await Services.getTotal();
-    totalFunction(await totalData);
-    getList(await data.data);
-    getMoneyIn(await moneyInData.data);
-    getMoneyOut(await moneyOutData.data);
-
-    handleClose();
+    window.location.reload();
   };
 
   return (
@@ -91,20 +75,11 @@ export default function AddItemModal({
         <Modal.Body>
           <Form onSubmit={addItemSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>{formText.nameLabel}</Form.Label>
-              <Form.Control
-                id="item-name"
-                required
-                type="text"
-                placeholder={formText.namePlaceholder}
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
               <Form.Label>{formText.amountLabel}</Form.Label>
               <InputGroup>
                 <InputGroup.Text>$</InputGroup.Text>
                 <Form.Control
+                  autoFocus
                   id="item-amount"
                   required
                   type="text"
@@ -112,6 +87,15 @@ export default function AddItemModal({
                   aria-label="Amount (to the nearest dollar)"
                 />
               </InputGroup>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>{formText.nameLabel}</Form.Label>
+              <Form.Control
+                id="item-name"
+                required
+                type="text"
+                placeholder={formText.namePlaceholder}
+              />
             </Form.Group>
             <div className="buttons__align-right">
               <button type="button" className="tertiary-button" onClick={handleClose}>

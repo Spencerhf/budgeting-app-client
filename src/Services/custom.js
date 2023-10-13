@@ -13,6 +13,11 @@ async function getRecentActivity() {
   return response;
 }
 
+async function getAllActivity() {
+  const response = await axios.get(`${apiUrl}/all-activity`);
+  return response;
+}
+
 async function getMoneyInActivity() {
   const response = await axios.get(`${apiUrl}/money-in`);
   return response;
@@ -44,6 +49,7 @@ async function updateLineItem(updateObj, id) {
 export {
   addItem,
   removeItem,
+  getAllActivity,
   getRecentActivity,
   getMoneyOutActivity,
   getMoneyInActivity,
