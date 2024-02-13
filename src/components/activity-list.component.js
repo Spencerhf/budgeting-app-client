@@ -2,6 +2,7 @@ import "../App.css";
 import { useState } from "react";
 import EditIcon from "../Assets/edit-icon.png";
 import EditListItemModal from "./edit-list-item.component";
+const moment = require('moment');
 
 function ActivityList({
   list,
@@ -22,19 +23,22 @@ function ActivityList({
     modalToggle(true);
   };
 
-  const TimeStamp = ({ oldDate, newDate }) => {
-    if (oldDate.getDay() === newDate.getDay()) {
-      return null;
-    }
-    return <h3>{ newDate }</h3>;
-  };
+  // const TimeStamp = ({ oldDate, newDate }) => {
+  //   newDate = new Date(newDate);
+  //   oldDate = new Date(oldDate);
+  //   console.log(newDate.getDate(), oldDate.getDate());
+  //   if (oldDate.getDate() === newDate.getDate()) {
+  //     return null;
+  //   }
+  //   return <h3>{ moment(newDate.format("MMM Do, YYYY")) }</h3>;
+  // };
 
   return (
     <div className="activity-list__segment">
       <h2>{listName}</h2>
       {list.map((listItem, index) => (
         <div>
-          <TimeStamp newDate={listItem.createdAt} oldDate={list[index - 1]} />
+          {/* <TimeStamp oldDate={list[index--].createdAt} newDate={listItem.createdAt} /> */}
           <div key={listItem.id} onClick={() => handleShow(listItem)}>
             <div className="activity-list__container">
               <p>{listItem.name}</p>
