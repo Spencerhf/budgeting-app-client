@@ -5,7 +5,9 @@ export default function Header() {
   return (
     <header>
       <div className="header__container">
-        <img alt="budgeting logo" src={logo} />
+        <a href="/">
+          <img alt="budgeting logo" src={logo} />
+        </a>
         <h2>Track It</h2> 
       </div>
     </header>
