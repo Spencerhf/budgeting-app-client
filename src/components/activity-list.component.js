@@ -23,7 +23,7 @@ function ActivityList({
   };
 
   const TimeStamp = ({ oldDate, newDate }) => {
-    if (oldDate == newDate) {
+    if (oldDate === newDate) {
       return null;
     }
     return <h3>{ newDate }</h3>;
