@@ -23,22 +23,24 @@ function ActivityList({
     modalToggle(true);
   };
 
-  // const TimeStamp = ({ oldDate, newDate }) => {
-  //   newDate = new Date(newDate);
-  //   oldDate = new Date(oldDate);
-  //   console.log(newDate.getDate(), oldDate.getDate());
-  //   if (oldDate.getDate() === newDate.getDate()) {
-  //     return null;
-  //   }
-  //   return <h3>{ moment(newDate.format("MMM Do, YYYY")) }</h3>;
-  // };
+  const TimeStamp = ({ oldDate, newDate, index }) => {
+    newDate = new Date(newDate);
+    oldDate = new Date(oldDate);
+    // If the dates don't match or it's the first item in the list (meaning it's also the most recent)
+    // then add another date
+    if (oldDate.getDate() !== newDate.getDate() || index === 0) {
+      return <h3>{ moment(newDate).format("MMM Do, YYYY") }</h3>;
+    } else {
+      return null;
+    }
+  };
 
   return (
     <div className="activity-list__segment">
       <h2>{listName}</h2>
       {list.map((listItem, index) => (
         <div>
-          {/* <TimeStamp oldDate={list[index--].createdAt} newDate={listItem.createdAt} /> */}
+          <TimeStamp index={ index } oldDate={list[index--].createdAt} newDate={listItem.createdAt} />
           <div key={listItem.id} onClick={() => handleShow(listItem)}>
             <div className="activity-list__container">
               <p>{listItem.name}</p>

@@ -95,6 +95,12 @@ header h2 {
 /* END MONTHLY TOTAL COMPONENT */
 
 /* ACTIVITY LIST */
+.activity-list__segment h3 {
+  font-size: 18px;
+  margin: 15px 0 5px;
+  border-bottom: 2px solid black;
+  width: fit-content;
+}
 .activity-list__section {
   position: relative;
   padding-top: 1px;
