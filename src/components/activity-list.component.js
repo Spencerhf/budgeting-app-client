@@ -6,12 +6,8 @@ const moment = require('moment');
 
 function ActivityList({
   list,
-  getList,
-  totalFunction,
   listName,
-  seeAllBtn,
-  getMoneyIn,
-  getMoneyOut,
+  seeAllBtn
 }) {
   const [showModal, modalToggle] = useState(false);
   const [lineItem, itemClicked] = useState({});
@@ -23,13 +19,15 @@ function ActivityList({
     modalToggle(true);
   };
 
-  const TimeStamp = ({ oldDate, newDate, index }) => {
-    newDate = new Date(newDate);
-    oldDate = new Date(oldDate);
-    // If the dates don't match or it's the first item in the list (meaning it's also the most recent)
-    // then add another date
-    if (oldDate.getDate() !== newDate.getDate() || index === 0) {
-      return <h3>{ moment(newDate).format("MMM Do, YYYY") }</h3>;
+  const TimeStamp = ({ index }) => {
+    var currentItemDate = new Date(list[index].createdAt);
+    if (index === 0) {
+      return <h3>{ moment(currentItemDate).format("MMM Do, YYYY") }</h3>;
+    }
+    index--;
+    var prevItemDate = new Date(list[index].createdAt);
+    if (prevItemDate.getDate() !== currentItemDate.getDate()) {
+      return <h3>{ moment(currentItemDate).format("MMM Do, YYYY") }</h3>;
     } else {
       return null;
     }
@@ -39,8 +37,8 @@ function ActivityList({
     <div className="activity-list__segment">
       <h2>{listName}</h2>
       {list.map((listItem, index) => (
-        <div>
-          <TimeStamp index={ index } oldDate={list[index--].createdAt} newDate={listItem.createdAt} />
+        <div key={ "list-item__" + index }>
+          <TimeStamp index={ index } />
           <div key={listItem.id} onClick={() => handleShow(listItem)}>
             <div className="activity-list__container">
               <p>{listItem.name}</p>

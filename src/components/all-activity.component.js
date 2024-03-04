@@ -31,8 +31,6 @@ export default function Homepage() {
         <ActivityList
           listName="All Activity"
           list={list}
-          getList={getList}
-          totalFunction={totalFunction}
         />
       </div>
     </div>
