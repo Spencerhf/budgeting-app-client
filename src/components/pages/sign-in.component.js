@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
 import "../../styles/sign-in.css";
 import userSignIn from "../../Services/users";
 
 export default function Homepage() {
-  const [userToken, getTokenFunction] = useState([]);
-
   const submitSignin = async(e) => {
     e.preventDefault();
     const submitBtnEl = document.querySelector(".primary-button[type='submit']");
