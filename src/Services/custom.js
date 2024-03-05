@@ -14,7 +14,11 @@ async function getRecentActivity() {
 }
 
 async function getAllActivity() {
-  const response = await axios.get(`${apiUrl}/all-activity`);
+  const response = await axios.get(`${apiUrl}/all-activity`, {
+    headers: {
+      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+    }
+  });
   return response;
 }
 
