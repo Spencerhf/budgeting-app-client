@@ -1,0 +1,19 @@
+.sign-in__container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  height: 100vh;
+}
+.sign-in__form {
+  margin-top: 5%;
+}
+.sign-in__form .primary-button {
+  display: block;
+  width: 100%;
+}
+.sign-in__form a {
+  color: #2e2b4a;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 20px;
+}

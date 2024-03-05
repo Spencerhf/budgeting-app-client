@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import TotalMoney from "./total-money.component";
-import ActivityList from "./activity-list.component";
-import AddItemModal from "./add-item-modal.component";
-import * as Services from "../Services/custom";
+import TotalMoney from "../total-money.component";
+import ActivityList from "../activity-list.component";
+import AddItemModal from "../add-item-modal.component";
+import * as Services from "../../Services/custom";
 
 export default function Homepage() {
   const [total, totalFunction] = useState([]);

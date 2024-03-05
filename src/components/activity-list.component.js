@@ -1,4 +1,3 @@
-import "../App.css";
 import { useState } from "react";
 import EditIcon from "../Assets/edit-icon.png";
 import EditListItemModal from "./edit-list-item.component";

@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // STYLING
-import "./App.css";
+import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // PAGES
 import Header from "./components/header.component";
-import Homepage from "./components/homepage.component";
-import AllActivity from "./components/all-activity.component";
+import Homepage from "./components/pages/homepage.component";
+import AllActivity from "./components/pages/all-activity.component";
+import SignIn from "./components/pages/sign-in.component";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/all-activity",
     element: <AllActivity />,
+  },
+  {
+    path: "/sign-in",
+    element: <SignIn />,
   },
 ]);
 
