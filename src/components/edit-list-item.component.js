@@ -27,7 +27,9 @@ export default function EditListItemModal({
     }
   };
 
-  const deleteLineItem = async () => {
+  const deleteLineItem = async (e) => {
+    e.preventDefault();
+    e.target.innerHTML = "deleting...";
     // Update activity list
     await Services.removeItem(itemId);
     window.location.reload();

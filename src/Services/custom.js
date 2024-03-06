@@ -1,78 +1,94 @@
 import axios from "axios";
+import { TokenAuthentication } from "../auth/user.auth";
 
 const apiUrl = "https://almost-a-budgeting-app-6b804606f213.herokuapp.com";
-// const apiUrl = "http://localhost:3000";
 
 async function getTotal() {
+  const userToken = TokenAuthentication();
+  if (!userToken) return;
   const response = await axios.get(`${apiUrl}/monthly-total`, {
     headers: {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+      "x-access-token": userToken
     }
   });
   return response.data;
 }
 
 async function getRecentActivity() {
+  const userToken = TokenAuthentication();
+  if (!userToken) return;
   const response = await axios.get(`${apiUrl}/activity-list`, {
     headers: {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+      "x-access-token": userToken
     }
   });
   return response;
 }
 
 async function getAllActivity() {
+  const userToken = TokenAuthentication();
+  if (!userToken) return;
   const response = await axios.get(`${apiUrl}/all-activity`, {
     headers: {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+      "x-access-token": userToken
     }
   });
   return response;
 }
 
 async function getMoneyInActivity() {
+  const userToken = TokenAuthentication();
+  if (!userToken) return;
   const response = await axios.get(`${apiUrl}/money-in`, {
     headers: {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+      "x-access-token": userToken
     }
   });
   return response;
 }
 
 async function getMoneyOutActivity() {
+  const userToken = TokenAuthentication();
+  if (!userToken) return;
   const response = await axios.get(`${apiUrl}/money-out`, {
     headers: {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+      "x-access-token": userToken
     }
   });
   return response;
 }
 
 async function removeItem(id) {
-  const response = await axios.post(`${apiUrl}/remove-list/${id}`, {
+  const userToken = TokenAuthentication();
+  if (!userToken) return;
+  const response = await axios.post(`${apiUrl}/remove-list/${id}`, {}, {
     headers: {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+      "x-access-token": userToken
     }
   });
   return response;
 }
 
 async function addItem(name, amount) {
+  const userToken = TokenAuthentication();
+  if (!userToken) return;
   const response = await axios.post(`${apiUrl}/add-item`, {
     name: name,
     amount: amount,
   }, {
     headers: {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+      "x-access-token": userToken
     }
   });
   return response;
 }
 
 async function updateLineItem(updateObj, id) {
+  const userToken = TokenAuthentication();
+  if (!userToken) return;
   const response = await axios.post(`${apiUrl}/item-update/${id}`, updateObj, {
     headers: {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzA5NjEyMjAzfQ.WvltXBU2Fu14q2ncGebkRID-VxXe68_YFFDnv7WGPU0"
+      "x-access-token": userToken
     }
   });
   return response;

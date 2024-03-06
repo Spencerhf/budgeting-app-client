@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import "../../styles/sign-in.css";
-import userSignIn from "../../Services/users";
+import { UserSignIn } from "../../auth/user.auth";
 
 export default function Homepage() {
   const submitSignin = async(e) => {
@@ -11,9 +11,8 @@ export default function Homepage() {
 
     const userEmail = document.querySelector("#user-email").value;
     const userPass = document.querySelector("#user-password").value;
-    const userToken = await userSignIn(userEmail, userPass);
-    if (userToken) {
-      sessionStorage.getItem("userToken", userToken);
+    const signInReponse = await UserSignIn(userEmail, userPass);
+    if (signInReponse) {
       window.location.href = "/";
     }
     submitBtnEl.innerHTML = "Sign in";
